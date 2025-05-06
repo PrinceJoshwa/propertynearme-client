@@ -1,0 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+:root {
+  --primary: #ff7e31;
+  --primary-dark: #e86a1f;
+  --secondary: #6366f1;
+  --background: #f8fafc;
+  --text: #1e293b;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  color: var(--text);
+  background-color: var(--background);
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-red-600 text-white px-6 py-3 rounded-lg font-medium transition-all hover:bg-primary-dark focus:ring-4 focus:ring-primary/20 focus:outline-none;
+    /* @apply bg-primary text-primary border border-primary px-6 py-3 rounded-lg font-medium transition-all hover:bg-gray-50 focus:ring-4 focus:ring-primary/20 focus:outline-none; */
+}
+
+
+  .btn-secondary {
+    @apply bg-white text-primary border border-primary px-6 py-3 rounded-lg font-medium transition-all hover:bg-gray-50 focus:ring-4 focus:ring-primary/20 focus:outline-none;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold mb-4;
+  }
+
+  .section-subtitle {
+    @apply text-lg text-gray-600 mb-8 max-w-2xl;
+  }
+
+  .card {
+    @apply bg-white rounded-xl shadow-md overflow-hidden transition-all hover:shadow-lg;
+  }
+}
+
