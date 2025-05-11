@@ -29,7 +29,7 @@
 
 // const API_URL = import.meta.env.VITE_API_URL || "https://propertynearme-server.vercel.app/api";
 
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000/api"
+const API_URL = import.meta.env.VITE_API_URL || "https://propertynearme-server.vercel.app/api"
 
 // Add a console log to debug the API URL
 console.log("API URL:", API_URL)
@@ -102,6 +102,15 @@ console.log("API URL:", API_URL)
 export const googleAuth = async (token) => {
   try {
     console.log("Attempting to authenticate with Google token")
+
+    // For debugging, log the token (first few characters only for security)
+    if (token) {
+      console.log("Token starts with:", token.substring(0, 10) + "...")
+    } else {
+      console.error("Token is undefined or null")
+      throw new Error("No token provided")
+    }
+
     const response = await fetch(`${API_URL}/users/google`, {
       method: "POST",
       headers: {
@@ -109,13 +118,21 @@ export const googleAuth = async (token) => {
         Accept: "application/json",
       },
       body: JSON.stringify({ token }),
-      credentials: "include",
     })
 
+    // Log the response status
+    console.log("Google auth response status:", response.status)
+
     if (!response.ok) {
-      const errorData = await response.json()
-      console.error("Google auth response not OK:", errorData)
-      throw new Error(errorData.message || "Google authentication failed")
+      let errorMessage = "Google authentication failed"
+      try {
+        const errorData = await response.json()
+        console.error("Google auth response not OK:", errorData)
+        errorMessage = errorData.message || errorMessage
+      } catch (e) {
+        console.error("Failed to parse error response:", e)
+      }
+      throw new Error(errorMessage)
     }
 
     return await response.json()
@@ -166,4 +183,3 @@ export const addProperty = async (propertyData, token) => {
     throw error
   }
 }
-

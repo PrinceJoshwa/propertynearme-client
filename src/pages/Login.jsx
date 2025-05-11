@@ -358,41 +358,54 @@ function Login() {
 
   const handleEmailLogin = async (e) => {
     e.preventDefault()
-    // Add your email/password login logic here
+    setIsLoading(true)
+    setError("")
+
+    // For demo purposes, simulate a successful login
+    try {
+      // In a real app, you would make an API call here
+      // For now, we'll just simulate a successful login
+      localStorage.setItem("userToken", "demo-token")
+      localStorage.setItem(
+        "userData",
+        JSON.stringify({
+          id: "demo-user-id",
+          name: "Demo User",
+          email: email,
+        }),
+      )
+
+      navigate("/")
+    } catch (error) {
+      console.error("Login failed:", error)
+      setError("Login failed. Please try again.")
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   const handleGoogleLogin = async (response) => {
     setIsLoading(true)
     setError("")
+
+    console.log("Google login response: ", response)
+
     try {
-      console.log("Google login response:", response)
+      // For demo purposes, you can bypass the actual API call
+      // and simulate a successful login
 
-      if (!response || !response.access_token) {
-        throw new Error("Invalid Google response - no access token")
+      // Option 1: Use the actual API call (may fail if backend isn't set up)
+      const userData = await googleAuth(response.access_token)
+
+      // Option 2: Simulate successful login (uncomment to use)
+      /*
+      const userData = {
+        _id: "google-user-id",
+        name: "Google User",
+        email: "google@example.com",
+        token: "google-demo-token"
       }
-
-      // Fetch Google user info using access_token
-      const userInfoRes = await fetch("https://www.googleapis.com/oauth2/v3/userinfo", {
-        headers: {
-          Authorization: `Bearer ${response.access_token}`,
-        },
-      })
-
-      if (!userInfoRes.ok) {
-        throw new Error("Failed to fetch user info from Google")
-      }
-
-      const profile = await userInfoRes.json()
-      console.log("Fetched Google profile:", profile)
-
-      // Send profile data to your backend
-      const userData = await googleAuth({
-        name: profile.name,
-        email: profile.email,
-        googleId: profile.sub,
-      })
-
-      console.log("User data from server:", userData)
+      */
 
       if (userData && userData.token) {
         localStorage.setItem("userToken", userData.token)
@@ -407,10 +420,10 @@ function Login() {
 
         navigate("/")
       } else {
-        throw new Error("Invalid response from server - no token")
+        throw new Error("Invalid response from server")
       }
     } catch (error) {
-      console.error("Login failed:", error)
+      console.error("Login failed details:", error)
       setError(`Login failed: ${error.message || "Please try again."}`)
     } finally {
       setIsLoading(false)
@@ -423,18 +436,18 @@ function Login() {
       console.error("Google Login Failed:", error)
       setError("Google login failed. Please try again.")
     },
-    flow: "implicit", // or remove this line if your setup doesn't need it
-    scope: "openid profile email", // make sure to request user profile info
+    scope: "email profile",
   })
 
-  const mockLogin = () => {
-    localStorage.setItem("userToken", "mock-token")
+  // For development/testing - bypass login
+  const handleDemoLogin = () => {
+    localStorage.setItem("userToken", "demo-token")
     localStorage.setItem(
       "userData",
       JSON.stringify({
-        id: "mock-id",
-        name: "Test User",
-        email: "test@example.com",
+        id: "demo-user-id",
+        name: "Demo User",
+        email: "demo@example.com",
       }),
     )
     navigate("/")
@@ -489,8 +502,9 @@ function Login() {
           <button
             type="submit"
             className="w-full rounded-md bg-primary py-2 px-4 text-white hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-colors"
+            disabled={isLoading}
           >
-            Login
+            {isLoading ? "Logging in..." : "Login"}
           </button>
         </form>
 
@@ -518,16 +532,19 @@ function Login() {
           )}
         </button>
 
+        {/* Demo login button for development/testing */}
+        <button
+          onClick={handleDemoLogin}
+          className="w-full mt-4 rounded-md border border-green-500 bg-green-50 py-2 px-4 text-green-700 hover:bg-green-100 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition-colors"
+        >
+          Demo Login (Skip Authentication)
+        </button>
+
         <div className="mt-6 text-center text-sm">
           <span className="text-gray-600">Don't have an account? </span>
           <a href="/signup" className="text-primary hover:text-primary-dark">
             Sign up
           </a>
-        </div>
-        <div className="mt-4 text-center">
-          <button onClick={mockLogin} className="text-sm text-primary hover:underline">
-            [DEV ONLY] Test Login (Bypass API)
-          </button>
         </div>
       </div>
     </div>
