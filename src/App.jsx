@@ -20,7 +20,7 @@ import Navbar from "./components/Navbar"
 import Footer from "./components/Footer"
 
 // Utils
-// import { isAuthenticated } from "./utils/auth"
+import { isAuthenticated } from "./utils/auth"
 
 const googleClientId = import.meta.env.VITE_GOOGLE_CLIENT_ID || '679932378152-kq81gqn2me72sgigujhh1l4f4k00k2l5.apps.googleusercontent.com';
 
