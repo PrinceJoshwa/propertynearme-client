@@ -639,7 +639,7 @@ const Home = () => {
       </section>
 
       {/* Property Finder */}
-      <section className="py-16">
+      {/* <section className="py-16">
         <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="section-title">Property Finder</h2>
@@ -682,7 +682,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Developers Section */}
       <section className="py-16 bg-gray-50">
