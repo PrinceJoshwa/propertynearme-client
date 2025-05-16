@@ -98,8 +98,10 @@ import AddProperty from "./pages/AddProperty"
 import Login from "./pages/Login"
 import Signup from "./pages/Signup"
 import NotFound from "./pages/NotFound"
+import Contact from "./pages/Contact"
 
 // Components
+import PropertyListingPage from "./components/PropertyListingPage"
 import Navbar from "./components/Navbar"
 import Footer from "./components/Footer"
 
@@ -124,7 +126,7 @@ function App() {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-screen bg-white">
-        <div className="w-16 h-16 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+        <div className="w-16 h-16 border-4 border-red-500 border-t-transparent rounded-full animate-spin"></div>
       </div>
     )
   }
@@ -141,6 +143,8 @@ function App() {
                 <Route path="/about" element={<About />} />
                 <Route path="/projects" element={<Projects />} />
                 <Route path="/property" element={<Property />} />
+                <Route path="/property/type/:type" element={<PropertyListingPage />} />
+                <Route path="/contact" element={<Contact />} />
                 <Route
                   path="/add-property"
                   element={
@@ -163,4 +167,3 @@ function App() {
 }
 
 export default App
-

@@ -153,7 +153,7 @@ import { useState, useEffect } from "react"
 import { Link, useLocation } from "react-router-dom"
 import { motion } from "framer-motion"
 import { isAuthenticated, logout } from "../utils/auth"
-import { Menu, X, ChevronDown, Home, Info, Building, Landmark, LogIn, Plus } from "lucide-react"
+import { Menu, X, ChevronDown, Home, Info, Building, Landmark, LogIn, Plus, Contact } from "lucide-react"
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -184,6 +184,7 @@ const Navbar = () => {
     { name: "About Us", path: "/about", icon: <Info className="w-4 h-4" /> },
     { name: "Projects", path: "/projects", icon: <Building className="w-4 h-4" /> },
     { name: "Property", path: "/property", icon: <Landmark className="w-4 h-4" /> },
+    { name: "Contact", path: "/contact", icon: <Contact className="w-4 h-4" /> },
   ]
 
   return (
@@ -194,7 +195,7 @@ const Navbar = () => {
         scrolled ? "bg-white shadow-md py-3" : "bg-transparent py-5"
       }`}
     >
-      <div className="container mx-auto px-4 md:px-6">
+      <div className="container mx-auto px-4 md:px-2">
         <div className="flex justify-between items-center">
           <Link to="/" className="flex items-center">
             <motion.div
