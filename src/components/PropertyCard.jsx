@@ -22,14 +22,14 @@ const PropertyCard = ({ property }) => {
         <p className="text-gray-600 text-sm mb-4 line-clamp-2">{property.description}</p>
 
         <div className="flex justify-between mb-4">
-          <div className="flex items-center">
+          {/* <div className="flex items-center">
             <Bed className="h-4 w-4 text-gray-500 mr-1" />
             <span className="text-gray-600 text-sm">{property.bedrooms} Beds</span>
-          </div>
-          <div className="flex items-center">
+          </div> */}
+          {/* <div className="flex items-center">
             <Bath className="h-4 w-4 text-gray-500 mr-1" />
             <span className="text-gray-600 text-sm">{property.bathrooms} Baths</span>
-          </div>
+          </div> */}
           <div className="flex items-center">
             <Square className="h-4 w-4 text-gray-500 mr-1" />
             <span className="text-gray-600 text-sm">{property.area} acre</span>

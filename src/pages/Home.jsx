@@ -458,7 +458,7 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
             {[
               {
                 name: "Apartments",
@@ -480,11 +480,11 @@ const Home = () => {
                 image:
                   "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
               },
-              {
-                name: "PG/Hostels",
-                image:
-                  "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-              },
+              // {
+              //   name: "PG/Hostels",
+              //   image:
+              //     "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+              // },
               {
                 name: "Farmlands",
                 image:
@@ -520,7 +520,7 @@ const Home = () => {
         <div className="container mx-auto px-4 md:px-6">
           <div className="flex justify-between items-center mb-8">
             <div>
-              <h2 className="section-title">Featured Properties</h2>
+              <h2 className="section-title">Trending Properties</h2>
               <p className="text-gray-600">Handpicked properties for you</p>
             </div>
             <Link to="/property" className="text-primary font-medium flex items-center">
@@ -561,7 +561,7 @@ const Home = () => {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <motion.div
+            {/* <motion.div
               variants={{
                 hidden: { opacity: 0 },
                 visible: { opacity: 1 },
@@ -597,6 +597,60 @@ const Home = () => {
                       location: "Hoskote",
                       type: "Exclusive Property",
                       image: "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1743606770/10_cgulkr.png",
+                    },
+                  ].map((item) => (
+                    <div key={item.id} className="relative h-40 overflow-hidden rounded-lg">
+                      <img
+                        src={item.image || "/placeholder.svg"}
+                        alt={item.location}
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black/30 flex flex-col justify-end p-3">
+                        <h3 className="text-white font-medium text-sm">{item.location}</h3>
+                        <p className="text-white text-xs">{item.type}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </motion.div> */}
+
+<motion.div
+              variants={{
+                hidden: { opacity: 0 },
+                visible: { opacity: 1 },
+              }}
+              initial="hidden"
+              animate={controls}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="col-span-2"
+            >
+              <div className="bg-white rounded-lg overflow-hidden shadow-md">
+                <div className="grid grid-cols-2 gap-2 p-2">
+                  {[
+                    {
+                      id: 1,
+                      location: "Whitefield",
+                      type: "Exclusive Property",
+                      image: "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1747341000/whitefield_qkjhlh.jpg",
+                    },
+                    {
+                      id: 2,
+                      location: "Sarjapura Road",
+                      type: "Exclusive Property",
+                      image: "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1747341000/sarjapur_road_uqtft3.jpg",
+                    },
+                    {
+                      id: 3,
+                      location: "Yelahanka",
+                      type: "Exclusive Property",
+                      image: "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1747341000/yelahanka_bglops.jpg",
+                    },
+                    {
+                      id: 4,
+                      location: "Electronic City",
+                      type: "Exclusive Property",
+                      image: "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1747341000/electronic_aklsnm.jpg",
                     },
                   ].map((item) => (
                     <div key={item.id} className="relative h-40 overflow-hidden rounded-lg">
