@@ -129,7 +129,7 @@ import { Link } from "react-router-dom"
 
 const PropertyHero = () => {
   return (
-    <section className="relative h-screen flex items-center pt-46 md:pt-24">
+    <section className="relative h-screen flex items-center pt-54 md:pt-24">
       {/* Background with overlay and gradient */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-black/50 z-10"></div>
       <div
