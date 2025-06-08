@@ -536,7 +536,7 @@ const Projects = () => {
   return (
     <div className="bg-gradient-to-b from-gray-50 to-white">
       {/* Hero Section */}
-      <section className="pt-24 pb-16 relative overflow-hidden">
+      <section className="pt-24 pb-16 relative overflow-hidden bg-gray-700">
         <div className="absolute inset-0 z-0 opacity-10">
           <div className="absolute inset-0 bg-gradient-to-r from-red-500 to-red-600 opacity-30" />
           <div className="absolute w-96 h-96 bg-red-500 rounded-full -top-20 -left-20 blur-3xl opacity-20" />
@@ -572,7 +572,7 @@ const Projects = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-xl text-slate-600 mb-6"
+              className="text-xl text-white mb-6"
             >
               Discover our portfolio of carefully crafted properties designed with your comfort and lifestyle in mind
             </motion.p>
@@ -583,7 +583,7 @@ const Projects = () => {
             >
               <a
                 href="#projects"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-red-500 to-red-600 text-white rounded-full font-medium shadow-lg shadow-red-200 hover:shadow-xl hover:shadow-red-200 transition-all duration-300 group"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-red-500 to-red-600 text-white rounded-full font-medium shadow-red-200 hover:shadow-xl hover:shadow-red-200 transition-all duration-300 group"
               >
                 Explore Projects
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -596,7 +596,7 @@ const Projects = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.6 }}
-          className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent"
+          className="absolute bottom-0 left-0 right-0 h-24"
         />
       </section>
 
