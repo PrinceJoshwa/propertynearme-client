@@ -233,7 +233,7 @@ const Navbar = () => {
 
             {authenticated ? (
               <div className="relative group">
-                <button className="flex items-center font-medium text-black hover:text-red-500 transition-colors">
+                <button className="flex items-center font-medium text-white hover:text-red-500 transition-colors">
                   Account <ChevronDown className="ml-1 h-4 w-4" />
                 </button>
                 <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
