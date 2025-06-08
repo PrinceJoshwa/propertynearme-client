@@ -191,8 +191,8 @@ const Navbar = () => {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled ? "bg-white shadow-md py-3" : "bg-transparent py-5"
+      className={`fixed w-full z-50 transition-all duration-300  ${
+        scrolled ? "bg-gray-900 shadow-md py-3" : "bg-transparent py-5"
       }`}
     >
       <div className="container mx-auto px-4 md:px-2">
@@ -213,7 +213,7 @@ const Navbar = () => {
                 key={link.name}
                 to={link.path}
                 className={`font-medium transition-colors hover:text-red-500 flex items-center gap-1.5 relative group ${
-                  location.pathname === link.path ? "text-red-500" : "text-black"
+                  location.pathname === link.path ? "text-red-500" : "text-white"
                 }`}
               >
                 {link.icon}
