@@ -153,7 +153,7 @@ function Signup() {
 
           <button
             type="submit"
-            className="w-full rounded-md bg-primary py-2 px-4 text-white hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-colors"
+            className="w-full rounded-md bg-primary py-2 px-4 text-white bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-colors"
           >
             Sign Up
           </button>
